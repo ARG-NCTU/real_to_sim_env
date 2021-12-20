@@ -1,5 +1,9 @@
 # nctu_simulation_env
-This is a ROS package for the NCTU EE6F simulation environment
+This is a ROS package for the some simulation environments (gazebo world).
+
+Then, you can spawn the robot into the world.
+
+![](image/rviz.png)
 
 ## Download Mesh
 `cd mesh`
@@ -7,8 +11,18 @@ This is a ROS package for the NCTU EE6F simulation environment
 `source download_environments.sh`
 
 ## Launch Env
-`roslaunch nctu_simulation_env nctu_gazebo.launch`
+### NCTU EE6F
+`roslaunch nctu_simulation_env nctu_gazebo.launch world:=EE6F`
 
-![](image/overall.png)
+![](image/EE6F.png)
 
-![](image/inside.png)
+
+### auditorium
+`roslaunch nctu_simulation_env nctu_gazebo.launch world:=auditorium`
+
+![](image/auditorium.png)
+
+### urban
+`roslaunch nctu_simulation_env nctu_gazebo.launch world:=urban`
+
+![](image/urban.png)
