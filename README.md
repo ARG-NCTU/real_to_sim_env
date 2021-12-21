@@ -29,7 +29,9 @@ Then, you can spawn the robot into the world.
 
 ### urban with door
 
-This world also need this ROS package ![dynamic_gazebo_models](https://github.com/kuolunwang/dynamic_gazebo_models.git)
+This world also need this ROS package [dynamic_gazebo_models](https://github.com/kuolunwang/dynamic_gazebo_models.git)
+
+
 `roslaunch nctu_simulation_env nctu_gazebo.launch world:=urban_with_door`
 
 ![](image/urban_with_door.png)
