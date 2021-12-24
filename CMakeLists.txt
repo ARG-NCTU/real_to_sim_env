@@ -12,6 +12,16 @@ find_package(catkin REQUIRED COMPONENTS
   std_msgs
   sensor_msgs
   pcl_ros
+  geometry_msgs
+  nav_msgs
+  pcl_conversions
+  pcl_ros
+  roscpp
+  rospy
+  dynamic_reconfigure
+  visualization_msgs
+  std_msgs
+  gazebo_msgs
 )
 
 find_package(OpenCV REQUIRED)
@@ -27,6 +37,16 @@ catkin_package(
   std_msgs
   sensor_msgs
   pcl_ros
+  geometry_msgs
+  nav_msgs
+  pcl_conversions
+  pcl_ros
+  roscpp
+  rospy
+  dynamic_reconfigure
+  visualization_msgs
+  std_msgs
+  gazebo_msgs
 )
 
 ###########
@@ -80,3 +100,13 @@ install(DIRECTORY urdf/
 install(DIRECTORY world/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/world
 )
+
+#############
+## Testing ##
+#############
+
+find_package(Eigen3 REQUIRED)
+include_directories(${EIGEN3_INCLUDE_DIRS})
+
+add_executable(door_segmentation src/door_segmentation.cpp)
+target_link_libraries(door_segmentation ${catkin_LIBRARIES})

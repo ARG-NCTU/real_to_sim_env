@@ -1,0 +1,54 @@
+<?xml version="1.0" ?>
+<launch>
+  <arg name="veh" default="X1"/>
+  <arg name="add_group_srv" value="/model_dynamics_manager/add_control_group"/>
+
+  <group ns="$(arg veh)">
+    <node pkg="mapping" type="pub_gazebo_tf.py" name="pub_gazebo_tf" output="screen" />
+
+    <node pkg="nctu_simulation_env" type="door_segmentation" name="door_segmentation" output="screen">
+      <rosparam command="load" file="$(find nctu_simulation_env)/config/door_info.yaml" />
+    </node>
+  </group>
+
+  <!-- Model Dynamic Manager -->
+
+  <node pkg="dynamic_gazebo_models" type="dynamics_manager" name="dynamics_manager" output="screen"/>
+
+
+
+  <node pkg="rosservice" type="rosservice" name="flip_door_group" args="call
+    $(arg add_group_srv)
+    '{
+        group:
+          {
+            group_name: 'FlipDoors',
+            type: 'door',
+            active_units: [1, 2]
+          }
+    }'
+  "/>
+  <node pkg="rosservice" type="rosservice" name="door_1" args="call
+    $(arg add_group_srv)
+    '{
+        group:
+          {
+            group_name: 'door_1',
+            type: 'door',
+            active_units: [1]
+          }
+    }'
+  "/>
+  <node pkg="rosservice" type="rosservice" name="door_2" args="call
+    $(arg add_group_srv)
+    '{
+        group:
+          {
+            group_name: 'door_2',
+            type: 'door',
+            active_units: [2]
+          }
+    }'
+  "/>
+
+</launch>
