@@ -4,10 +4,40 @@
   <arg name="add_group_srv" value="/model_dynamics_manager/add_control_group"/>
 
   <group ns="$(arg veh)">
-    <node pkg="mapping" type="pub_gazebo_tf.py" name="pub_gazebo_tf" output="screen" />
-
+    <node pkg="mapping" type="pub_gazebo_tf.py" name="pub_gazebo_tf" output="screen">
+      <param name="frame_name" value="/base_link" />
+      <param name="parent_name" value="/map" />
+    </node>
     <node pkg="nctu_simulation_env" type="door_segmentation" name="door_segmentation" output="screen">
       <rosparam command="load" file="$(find nctu_simulation_env)/config/door_info.yaml" />
+    </node>
+
+
+    <!-- run pointcloud_to_laserscan node -->
+    <node pkg="pointcloud_to_laserscan" type="pointcloud_to_laserscan_node" name="pointcloud_to_laserscan">
+
+        <remap from="cloud_in" to="/X1/points" />
+        <remap from="scan" to="/RL/scan" />
+        <rosparam>
+            target_frame: front_laser
+            min_height: -0.3
+            max_height: 0.5
+            transform_tolerance: 0.01
+            angle_min: -2.094395
+            angle_max: 2.094395
+            angle_increment: 0.017453
+            scan_time: 0.1
+            range_min: 0.4
+            range_max: 100.0
+            use_inf: False
+
+            # Concurrency level, affects number of pointclouds queued for processing and number of threads used
+            # 0 : Detect number of cores
+            # 1 : Single threaded
+            # 2->inf : Parallelism level
+            concurrency_level: 0
+        </rosparam>
+
     </node>
   </group>
 

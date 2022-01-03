@@ -82,7 +82,24 @@ Door_segmentation::~Door_segmentation()
 }
 
 void Door_segmentation::pc_cb(const sensor_msgs::PointCloud2 msg)
-{   // door frame TF
+{   //map frame tf
+    getmodelstate.request.model_name = "X1";
+    if (ser_client.call(getmodelstate)) ;
+    else{
+      ROS_ERROR("Failed to call service (door_1)");
+      return;
+    }
+    transform.setOrigin(tf::Vector3(getmodelstate.response.pose.position.x,
+                                    getmodelstate.response.pose.position.y,
+                                    getmodelstate.response.pose.position.z));
+    transform.setRotation(tf::Quaternion(getmodelstate.response.pose.orientation.x,
+                                          getmodelstate.response.pose.orientation.y,
+                                          getmodelstate.response.pose.orientation.z,
+                                          getmodelstate.response.pose.orientation.w));
+    tf_br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "map", "base_link"));
+
+
+    // door frame TF
     getmodelstate.request.model_name = "door_1";
     if (ser_client.call(getmodelstate)) ;
     else{
@@ -102,14 +119,14 @@ void Door_segmentation::pc_cb(const sensor_msgs::PointCloud2 msg)
     transform.setOrigin( tf::Vector3(rotate_x, rotate_y, 0) ); // z = 0
     q.setRPY(0, 0, rotation_rad - modelpose_pitch);//tf::Quaternion
     transform.setRotation(q);//tf::Transform transform;
-    tf_br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "/map", "/model_door"));
+    tf_br.sendTransform(tf::StampedTransform(transform, ros::Time::now(), "map", "model_door"));
 
     // PointCloud Transform
     fromROSMsg(msg, pc_raw);
     try
     {
-        tf_listener.waitForTransform("/model_door", "X1/front_laser", ros::Time(0), ros::Duration(0.2));
-        tf_listener.lookupTransform("/model_door", "X1/front_laser", ros::Time(0), tf_pose);
+        tf_listener.waitForTransform("model_door", "front_laser", ros::Time(0), ros::Duration(0.2));
+        tf_listener.lookupTransform("model_door", "front_laser", ros::Time(0), tf_pose);
     }
     catch (tf::TransformException ex)
     {
@@ -140,8 +157,8 @@ void Door_segmentation::pc_cb(const sensor_msgs::PointCloud2 msg)
 
     try
     {
-        tf_listener.waitForTransform("X1/front_laser","/model_door", ros::Time(0), ros::Duration(0.2));
-        tf_listener.lookupTransform("X1/front_laser","/model_door", ros::Time(0), tf_pose);
+        tf_listener.waitForTransform("front_laser","model_door", ros::Time(0), ros::Duration(0.2));
+        tf_listener.lookupTransform("front_laser","model_door", ros::Time(0), tf_pose);
     }
     catch (tf::TransformException ex)
     {
@@ -151,8 +168,8 @@ void Door_segmentation::pc_cb(const sensor_msgs::PointCloud2 msg)
     pcl_ros::transformAsMatrix(tf_pose, pose_matrix);
     pcl::transformPointCloud(pc_label, pc_label, pose_matrix);
     toROSMsg(pc_label, pc_msg);
-    pc_msg.header.frame_id = "X1/front_laser";
-    pc_msg.header.stamp = ros::Time(0);
+    pc_msg.header.frame_id = "front_laser";
+    // pc_msg.header.stamp = ros::Time(0);
     pub_map.publish(pc_msg);
 }
 
