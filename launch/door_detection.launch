@@ -4,12 +4,8 @@
   <arg name="add_group_srv" value="/model_dynamics_manager/add_control_group"/>
 
   <group ns="$(arg veh)">
-    <node pkg="mapping" type="pub_gazebo_tf.py" name="pub_gazebo_tf" output="screen">
-      <param name="frame_name" value="/base_link" />
-      <param name="parent_name" value="/map" />
-    </node>
-    <node pkg="nctu_simulation_env" type="door_segmentation" name="door_segmentation" output="screen">
-      <rosparam command="load" file="$(find nctu_simulation_env)/config/door_info.yaml" />
+    <node pkg="nctu_simulation_env" type="door_segment_service" name="door_segment_service" output="screen">
+      <rosparam command="load" file="$(find nctu_simulation_env)/config/all_doors.yaml" />
     </node>
 
 

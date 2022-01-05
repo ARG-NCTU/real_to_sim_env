@@ -22,6 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
   visualization_msgs
   std_msgs
   gazebo_msgs
+  message_generation
 )
 
 find_package(OpenCV REQUIRED)
@@ -30,7 +31,15 @@ find_package(PCL REQUIRED)
 ###################################
 ## catkin specific configuration ##
 ###################################
-
+add_service_files(
+  FILES
+  door.srv
+)
+generate_messages(
+  DEPENDENCIES
+  std_msgs  # and/or other packages containing depended messages
+  sensor_msgs
+)
 catkin_package(
   CATKIN_DEPENDS
   roscpp
@@ -48,6 +57,11 @@ catkin_package(
   std_msgs
   gazebo_msgs
 )
+
+
+
+
+
 
 ###########
 ## Build ##
@@ -110,3 +124,8 @@ include_directories(${EIGEN3_INCLUDE_DIRS})
 
 add_executable(door_segmentation src/door_segmentation.cpp)
 target_link_libraries(door_segmentation ${catkin_LIBRARIES})
+
+add_executable(door_segment_service src/door_segment_service.cpp)
+target_link_libraries(door_segment_service ${catkin_LIBRARIES})
+
+add_dependencies(door_segment_service ${PROJECT_NAME}_generate_messages_cpp )
