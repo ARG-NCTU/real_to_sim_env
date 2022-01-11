@@ -27,7 +27,7 @@ Then, you can spawn the robot into the world.
 
 ![](image/urban.png)
 
-### medical (link)[https://www.youtube.com/watch?v=NC4VnzS7ABU&ab_channel=DaveWu]
+### medical (link)![https://www.youtube.com/watch?v=NC4VnzS7ABU&ab_channel=DaveWu]
 `roslaunch real_to_sim_env gazebo_world.launch world:=medical`
 
 ![](image/medical.png)
