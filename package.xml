@@ -1,5 +1,5 @@
 <package>
-  <name>nctu_simulation_env</name>
+  <name>real_to_sim_env</name>
   <version>0.0.1</version>
   <description>Vehicle Simulator</description>
   <maintainer email="zhangji@cmu.edu">Ji Zhang</maintainer>

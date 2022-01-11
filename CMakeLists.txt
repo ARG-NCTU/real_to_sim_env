@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(nctu_simulation_env)
+project(real_to_sim_env)
 
 set(CMAKE_BUILD_TYPE Release)
 set(BUILD_STATIC_LIBS ON)
