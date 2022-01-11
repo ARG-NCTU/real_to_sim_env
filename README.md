@@ -27,11 +27,16 @@ Then, you can spawn the robot into the world.
 
 ![](image/urban.png)
 
-### urban with door
+### medical (link)[https://www.youtube.com/watch?v=NC4VnzS7ABU&ab_channel=DaveWu]
+`roslaunch real_to_sim_env gazebo_world.launch world:=medical`
+
+![](image/medical.png)
+
+<!-- ### urban with door
 
 This world also need this ROS package [dynamic_gazebo_models](https://github.com/kuolunwang/dynamic_gazebo_models.git)
 
 
 `roslaunch real_to_sim_env gazebo_world.launch world:=urban_with_door`
 
-![](image/urban_with_door.png)
+![](image/urban_with_door.png) -->
