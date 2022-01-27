@@ -1,18 +1,5 @@
 <sdf version='1.6'>
   <world name='default'>
-    <light name='sun' type='directional'>
-      <cast_shadows>1</cast_shadows>
-      <pose frame=''>0 0 10 0 -0 0</pose>
-      <diffuse>0.8 0.8 0.8 1</diffuse>
-      <specular>0.2 0.2 0.2 1</specular>
-      <attenuation>
-        <range>1000</range>
-        <constant>0.9</constant>
-        <linear>0.01</linear>
-        <quadratic>0.001</quadratic>
-      </attenuation>
-      <direction>-0.5 0.1 -0.9</direction>
-    </light>
     <model name='ground_plane'>
       <static>1</static>
       <link name='link'>
@@ -81,14 +68,14 @@
       <elevation>0</elevation>
       <heading_deg>0</heading_deg>
     </spherical_coordinates>
-    <model name='left'>
-      <pose frame=''>-1.77071 13.102 0 0 -0 0</pose>
+    <model name='EE6F'>
+      <pose frame=''>21.5603 -21.6622 0 0 -0 0</pose>
       <static>1</static>
       <link name='link'>
         <collision name='collision'>
           <geometry>
             <mesh>
-              <uri>model://left/meshes/left_mesh.dae</uri>
+              <uri>model://EE6F/meshes/EE6F.dae</uri>
             </mesh>
           </geometry>
           <max_contacts>10</max_contacts>
@@ -108,7 +95,7 @@
         <visual name='visual'>
           <geometry>
             <mesh>
-              <uri>model://left/meshes/left_mesh.dae</uri>
+              <uri>model://EE6F/meshes/EE6F.dae</uri>
             </mesh>
           </geometry>
         </visual>
@@ -117,119 +104,34 @@
         <kinematic>0</kinematic>
       </link>
     </model>
-    <model name='middle'>
-      <pose frame=''>-115.356 -116.092 0 0 -0 0</pose>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://middle/meshes/middle_mesh.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://middle/meshes/middle_mesh.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='right'>
-      <pose frame=''>0.320654 -6.82097 0 0 -0 0</pose>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://right/meshes/right_mesh.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://right/meshes/right_mesh.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
-    <model name='stairs'>
-      <pose frame=''>6.32635 5.79659 0 0 -0 0</pose>
-      <static>1</static>
-      <link name='link'>
-        <collision name='collision'>
-          <geometry>
-            <mesh>
-              <uri>model://stairs/meshes/stairs_mesh.dae</uri>
-            </mesh>
-          </geometry>
-          <max_contacts>10</max_contacts>
-          <surface>
-            <contact>
-              <ode/>
-            </contact>
-            <bounce/>
-            <friction>
-              <torsional>
-                <ode/>
-              </torsional>
-              <ode/>
-            </friction>
-          </surface>
-        </collision>
-        <visual name='visual'>
-          <geometry>
-            <mesh>
-              <uri>model://stairs/meshes/stairs_mesh.dae</uri>
-            </mesh>
-          </geometry>
-        </visual>
-        <self_collide>0</self_collide>
-        <enable_wind>0</enable_wind>
-        <kinematic>0</kinematic>
-      </link>
-    </model>
+    <light name='user_directional_light_0' type='directional'>
+      <pose frame=''>2.10605 -31.0888 1 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0.1 0.1 -0.9</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>1</cast_shadows>
+    </light>
     <state world_name='default'>
-      <sim_time>3256 838000000</sim_time>
-      <real_time>3319 786774003</real_time>
-      <wall_time>1635254148 787486480</wall_time>
-      <iterations>3256838</iterations>
+      <sim_time>183 32000000</sim_time>
+      <real_time>207 260220852</real_time>
+      <wall_time>1643286907 149242005</wall_time>
+      <iterations>183032</iterations>
+      <model name='EE6F'>
+        <pose frame=''>21.5603 -21.6622 0 0 -0 0</pose>
+        <scale>1 1 1</scale>
+        <link name='link'>
+          <pose frame=''>21.5603 -21.6622 0 0 -0 0</pose>
+          <velocity>0 0 0 0 -0 0</velocity>
+          <acceleration>0 0 0 0 -0 0</acceleration>
+          <wrench>0 0 0 0 -0 0</wrench>
+        </link>
+      </model>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -240,53 +142,13 @@
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <model name='left'>
-        <pose frame=''>1.00581 41.7679 0.337741 3.14159 -0.090936 3.14159</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>1.00581 41.7679 0.337741 3.14159 -0.090936 3.14159</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='middle'>
-        <pose frame=''>15.4306 26.273 0.202028 0 0.022605 -2.40331</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>15.4306 26.273 0.202028 0 0.022605 -2.40331</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='right'>
-        <pose frame=''>-35.1979 13.8205 0.659005 -3.0167 -0.032447 -2.34277</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-35.1979 13.8205 0.659005 -3.0167 -0.032447 -2.34277</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <model name='stairs'>
-        <pose frame=''>-4.05785 6.08947 0 0 -0 0.61905</pose>
-        <scale>1 1 1</scale>
-        <link name='link'>
-          <pose frame=''>-4.05785 6.08947 0 0 -0 0.61905</pose>
-          <velocity>0 0 0 0 -0 0</velocity>
-          <acceleration>0 0 0 0 -0 0</acceleration>
-          <wrench>0 0 0 0 -0 0</wrench>
-        </link>
-      </model>
-      <light name='sun'>
-        <pose frame=''>0 0 10 0 -0 0</pose>
+      <light name='user_directional_light_0'>
+        <pose frame=''>2.10605 -31.0888 1 0 -0 0</pose>
       </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>7.41698 -3.67623 111.109 -3e-06 1.5698 0.538417</pose>
+        <pose frame=''>-45.3577 -79.4256 38.7283 -0 0.489796 1.02419</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
