@@ -11,10 +11,10 @@ Then, you can spawn the robot into the world.
 `source download_environments.sh`
 
 ## Launch Env
-<!-- ### NCTU EE6F
+### NYCU EE6F
 `roslaunch real_to_sim_env gazebo_world.launch world:=EE6F`
 
-![](image/EE6F.png) -->
+![](image/EE6F.png)
 
 
 ### auditorium
