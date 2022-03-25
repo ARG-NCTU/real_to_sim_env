@@ -1,0 +1,27 @@
+<?xml version='1.0'?>
+<sdf version='1.5'>
+  <model name="door_puller_knob">
+      <link name="body">
+      <inertial>
+        <!-- Volume-->
+        <mass> 0.1 </mass>
+        <!-- Center of mass: -->
+        <pose>-0.000029461 0.000062691 0.027216509 0 0 0</pose>
+      </inertial>
+
+        <visual name="visual">
+          <geometry>
+            <mesh><uri>model://door/door_puller_knob.dae</uri></mesh>
+          </geometry>
+        </visual>
+
+        <collision name="collision">
+          <geometry>
+          <box>
+            <size>0.01 0.1 0.04</size>
+          </box>
+          </geometry>
+        </collision>
+      </link>
+  </model>
+</sdf>
