@@ -1,0 +1,14 @@
+material Marker/Diffuse
+{
+  receive_shadows off
+  technique
+  {
+    pass
+    {
+      texture_unit
+      {
+        texture vent.png
+      }
+    }
+  }
+}
