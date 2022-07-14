@@ -118,10 +118,10 @@
       </link>
     </model>
     <state world_name='default'>
-      <sim_time>67 880000000</sim_time>
-      <real_time>72 830992603</real_time>
-      <wall_time>1641909905 895060856</wall_time>
-      <iterations>67880</iterations>
+      <sim_time>1277 597000000</sim_time>
+      <real_time>105 673467795</real_time>
+      <wall_time>1655782462 82828921</wall_time>
+      <iterations>105281</iterations>
       <model name='ground_plane'>
         <pose frame=''>0 0 0 0 -0 0</pose>
         <scale>1 1 1</scale>
@@ -133,22 +133,19 @@
         </link>
       </model>
       <model name='medical'>
-        <pose frame=''>-6.74325 -0.395773 0 0 -0 0</pose>
+        <pose frame=''>5.89604 -0.282536 -0.288152 -1.57967 -0.007062 6.3e-05</pose>
         <scale>1 1 1</scale>
         <link name='link'>
-          <pose frame=''>-6.74325 -0.395773 0 0 -0 0</pose>
+          <pose frame=''>5.89604 -0.282536 -0.288152 -1.57967 -0.007062 6.3e-05</pose>
           <velocity>0 0 0 0 -0 0</velocity>
           <acceleration>0 0 0 0 -0 0</acceleration>
           <wrench>0 0 0 0 -0 0</wrench>
         </link>
       </model>
-      <light name='sun'>
-        <pose frame=''>0 0 10 0 -0 0</pose>
-      </light>
     </state>
     <gui fullscreen='0'>
       <camera name='user_camera'>
-        <pose frame=''>11.9387 -10.0801 4.60097 0 0.295643 2.3442</pose>
+        <pose frame=''>-14.7681 -77.1415 35.721 0 0.509796 1.42023</pose>
         <view_controller>orbit</view_controller>
         <projection_type>perspective</projection_type>
       </camera>
