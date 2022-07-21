@@ -22,7 +22,7 @@ find_package(catkin REQUIRED COMPONENTS
   visualization_msgs
   std_msgs
   gazebo_msgs
-  message_generation
+  #message_generation
 )
 
 find_package(OpenCV REQUIRED)
@@ -99,21 +99,25 @@ link_directories(
 install(DIRECTORY launch/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/launch
 )
-install(DIRECTORY log/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/log
-)
+#install(DIRECTORY log/
+#  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/log
+#)
 install(DIRECTORY mesh/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/mesh
 )
-install(DIRECTORY rviz/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/rviz
-)
-install(DIRECTORY urdf/
-  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf
-)
+#install(DIRECTORY rviz/
+#  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/rviz
+#)
+#install(DIRECTORY urdf/
+#  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/urdf
+#)
 install(DIRECTORY world/
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/world
 )
+install(DIRECTORY model/
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}/model
+)
+
 
 #############
 ## Testing ##
